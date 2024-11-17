@@ -4,7 +4,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: rgb(220, 230, 210);
     margin: 0;
-    padding: 0;
+    padding: 1px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -12,9 +12,10 @@ body {
 }
 
 header {
-    background: rgb(70, 70, 75);
+    background: rgb(70, 70, 130);
     color: white;
     text-align: center;
+    padding: 4px;
 }
 
 main {
@@ -50,7 +51,7 @@ select{
 }
 
 button {
-    background-color: rgb(60, 60, 160);
+    background-color: rgb(70, 70, 130);
     color: white;
     border: none;
     padding: 10px;
@@ -62,7 +63,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(2, 130, 130);
+    background-color: rgb(60, 60, 160);
 }
 
 footer {
