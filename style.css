@@ -16,6 +16,7 @@ header {
     color: white;
     text-align: center;
     padding-left: 4px; padding-right: 4px;
+    padding-top: 0%;
 }
 
 main {
@@ -23,7 +24,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
+    padding-left: 20px; padding-right: 20px;
 }
 
 #searchForm {
