@@ -7,7 +7,7 @@ body {
     padding: 1px;
     display: flex;
     flex-direction: column;
-    min-height: 70vh;
+    min-height: 50vh;
     font-size: large;
 }
 
@@ -71,6 +71,7 @@ footer {
     color: rgb(50, 50, 50);
     text-align: center;
     padding: 10px 0;
+    padding-top: 50px;
     position: relative;
     bottom: 0%;
 }
