@@ -3,98 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Object Detection...</title>
-    <link rel="icon" href="logo.png">
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: rgb(200, 200, 200); text-align: center; margin: 0; color: #333; }
-        header { background-color: rgba(0, 0, 0, 0.5); position: fixed; top: 0; width: 100%; z-index: 1000; }
-        #webcam, #canvas { max-width: 100%; height: auto; } 
-        #canvas { position: absolute; top: 0; left: 0; pointer-events: none; }
-        .output { max-height: 200px; overflow-y: auto; background: white; padding: 15px; margin: 10px; border-radius: 8px; }
-        button { padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px; width: 70%; }
-        button:hover { background: #2980b9; }
-        .output ul { list-style-type: none; padding: 0; }
-        .output li { background: #f9f9f9; margin: 5px 0; padding: 5px; font-size: 12px; }
-        .output li span { font-weight: bold; color: #e74c3c; }
-    </style>
+    <title>Search Applications..</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="download.png" type="image/x-icon"/>
 </head>
-<body>
-    <header><h1 style="color: ghostwhite;">Object Detection</h1></header>
-    <div>
-        <video id="webcam" autoplay playsinline></video>
-        <canvas id="canvas"></canvas>
-        <div class="output">
-            <button id="view-data">Detection Veiw-Data</button>
-            <h3>Detected Objects:</h3>
-            <ul id="output-list"></ul>
-        </div>
-        <div id="saved-data" class="output" style="display:none;">
-            <ul id="saved-list"></ul>
-        </div>
-        <footer style="position: relative; bottom: 0;">
-            © 2024-25 Updated Applications..<br> Developer @ Priyanshu
-        </footer>
-    </div>
+<body> <div id="loadingBar"></div> <!-- Loading Bar -->
+<header>
+    <h1>Find-<b style="font-size: 50px;">⌕</b>UT</h1>
+    <p>Find, Other platform and view them on Browser..</p>
+</header>
+    <main>
+        <form id="searchForm" onsubmit="handleSearch(event)">
+            <b for="websiteSelect">Select Website</b>
+            <select id="websiteSelect" name="websiteName" required aria-label="Select website">
+                <option value="" disabled selected>Select a website name</option>
+                <option value="google">Google</option>
+                <option value="gtranslate">Google Translate</option>
+                <option value="googlemaps">Google Maps</option>
+                <option value="youtube">Youtube</option>
+                <option value="instagram">Instagram</option>
+                <option value="facebook">Facebook</option>
+                <option value="linkedin">Linkedin</option>
+                <option value="amazon">Amazon</option>
+                <option value="chatgpt">Copilot</option>
+                <optgroup label="(Other Option)" title="This Coming Noon!"></optgroup>
+            </select>
+            
+            <p for="searchName"></p>
+            <input type="text" id="searchName" name="searchName" placeholder="🔎 Enter Find Name" required aria-label="Find name">
+            <button type="submit">Search</button>
+        </form>
+    </main>
 
-    <script>
-        let savedDetectionData = [];
-        async function setupWebcam() {
-            const video = document.getElementById('webcam');
-            const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
-            video.srcObject = stream;
-        }
+    <footer>  
+        <p>&copy;2024 Updated Find-<b style="font-size: 30px;">⌕</b>UT Applications<br>Developer @ "Priyanshu"</p>
+    </footer>
 
-        async function detectObjects() {
-            const model = await cocoSsd.load();
-            const canvas = document.getElementById('canvas');
-            const context = canvas.getContext('2d');
-            const video = document.getElementById('webcam');
+    <script >
+function handleSearch(event) {
+    event.preventDefault(); // Prevent default
+    const website = document.getElementById('websiteSelect').value;
+    const searchName = document.getElementById('searchName').value;
 
-            function updateCanvasSize() { canvas.width = video.videoWidth; canvas.height = video.videoHeight; }
+    // Show the loading bar
+    const loadingBar = document.getElementById('loadingBar');
+    loadingBar.style.transform = 'scaleX(1)';
 
-            async function detectFrame() {
-                updateCanvasSize();
-                const predictions = await model.detect(video);
-                document.getElementById('output-list').innerHTML = predictions.map(p => 
-                    `<li><span>${p.class}</span>: ${Math.round(p.score * 100)}%</li>`).join('');
-                context.clearRect(0, 0, canvas.width, canvas.height);
-                predictions.forEach(p => {
-                    context.beginPath();
-                    context.rect(p.bbox[0], p.bbox[1], p.bbox[2], p.bbox[3]);
-                    context.lineWidth = 2;
-                    context.strokeStyle = 'red';
-                    context.stroke();
-                    context.fillStyle = 'white';
-                    context.fillText(`${p.class} (${Math.round(p.score * 100)}%)`, p.bbox[0] + 5, p.bbox[1] + 15);
-                });
+    const urlMap = {
+        google: `https://www.google.com/search?q=${encodeURIComponent(searchName)}`,
+        instagram: `https://www.instagram.com/${encodeURIComponent(searchName)}`,
+        linkedin: `https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(searchName)}`,
+        googlemaps: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchName)}`,
+        facebook: `https://www.facebook.com/search?q=${encodeURIComponent(searchName)}`,
+        youtube: `https://www.youtube.com/search?q=${encodeURIComponent(searchName)}`,
+        chatgpt: `https://www.bing.com/chat?q=${encodeURIComponent(searchName)}`,
+        amazon: `https://www.amazon.com/s?k=${encodeURIComponent(searchName)}`,
+        gtranslate: `https://translate.google.com/?source=hello&sl=auto&tl=hi&text=${encodeURIComponent(searchName)}&op=translate`
+    };
 
-                saveDetectionData(predictions);
-                requestAnimationFrame(detectFrame);
-            }
-
-            detectFrame();
-        }
-
-        function saveDetectionData(predictions) {
-            if (predictions.length > 0) {
-                savedDetectionData.push(predictions.map(p => ({ class: p.class, score: p.score, bbox: p.bbox })));
-            }
-        }
-
-        function viewSavedData() {
-            const savedList = document.getElementById('saved-list');
-            const savedDataContainer = document.getElementById('saved-data');
-            savedList.innerHTML = savedDetectionData.length === 0 ? '<li>No data saved yet.</li>' : 
-                savedDetectionData.map((data, index) => 
-                    `<li>Detection ${index + 1}: ${data.map(p => `${p.class} (${Math.round(p.score * 100)}%)`).join(', ')}</li>`).join('');
-            savedDataContainer.style.display = 'block';
-        }
-
-        setupWebcam().then(detectObjects);
-        document.getElementById('view-data').addEventListener('click', viewSavedData);
-    </script>
+    const url = urlMap[website];
+    if (url) {
+        setTimeout(() => {
+            window.location.href = url; // search URL
+            loadingBar.style.transform = 'scaleX(0)'; // Hide loading bar
+        }, 500); // time
+    }
+    document.getElementById('searchName').value = ''; // Clear the search field
+}
+    </script> 
 </body>
-</html>
-<!--line 10-->
+</html><!--line 7.5/10-->
