@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background: linear-gradient(rgb(70, 70, 130), #004080);;
+    background: linear-gradient(rgb(70, 70, 130), #004080);
     color: white;
     text-align: center;
     padding-left: 4px; padding-right: 4px;
@@ -52,7 +52,7 @@ select{
 }
 
 button {
-    background-color: rgb(70, 70, 130);
+    background: linear-gradient(rgb(70, 70, 130), #004080);
     color: white;
     border: none;
     padding: 10px;
