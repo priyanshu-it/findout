@@ -47,6 +47,9 @@ input, select {
     padding: 10px 15px;
     font-size: 1em; /* Base font size */
 }
+select{
+    width: 100%;
+}
 
 /* Button styling */
 button {
