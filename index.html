@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Applications..</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="download.png" type="image/x-icon"/>
+    <link rel="icon" href="download.png" type="image/x-icon" />
 </head>
-<body> <div id="loadingBar"></div> <!-- Loading Bar -->
-<header>
-    <h1>Find-<b style="font-size: 50px;">⌕</b>UT</h1>
-    <p>Find, Other platform and view them on Browser..</p>
-</header>
+
+<body>
+    <div id="loadingBar"></div> <!-- Loading Bar -->
+    <header>
+        <h1>Find-<b style="font-size: 50px;">⌕</b>UT</h1>
+        <p>Find, Other platform and view them on Browser..</p>
+    </header>
     <main>
         <form id="searchForm" onsubmit="handleSearch(event)">
             <b for="websiteSelect">Select Website</b><br>
@@ -28,48 +31,18 @@
                 <option value="chatgpt">Copilot</option>
                 <optgroup label="(Other Option)" title="This Coming Noon!"></optgroup>
             </select>
-            
+
             <p for="searchName"></p>
-            <input type="text" id="searchName" name="searchName" placeholder="🔎 Enter Find Name" required aria-label="Find name">
+            <input type="text" id="searchName" name="searchName" placeholder="🔎 Enter Find Name" required
+                aria-label="Find name">
             <button type="submit">Search</button>
         </form>
     </main>
 
-    <footer>  
+    <footer>
         <p>&copy;2024 Updated Find-<b style="font-size: 30px;">⌕</b>UT Applications<br>Developer @ "Priyanshu"</p>
     </footer>
-
-    <script >
-function handleSearch(event) {
-    event.preventDefault(); // Prevent default
-    const website = document.getElementById('websiteSelect').value;
-    const searchName = document.getElementById('searchName').value;
-
-    // Show the loading bar
-    const loadingBar = document.getElementById('loadingBar');
-    loadingBar.style.transform = 'scaleX(1)';
-
-    const urlMap = {
-        google: `https://www.google.com/search?q=${encodeURIComponent(searchName)}`,
-        instagram: `https://www.instagram.com/${encodeURIComponent(searchName)}`,
-        linkedin: `https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(searchName)}`,
-        googlemaps: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchName)}`,
-        facebook: `https://www.facebook.com/search?q=${encodeURIComponent(searchName)}`,
-        youtube: `https://www.youtube.com/search?q=${encodeURIComponent(searchName)}`,
-        chatgpt: `https://www.bing.com/chat?q=${encodeURIComponent(searchName)}`,
-        amazon: `https://www.amazon.com/s?k=${encodeURIComponent(searchName)}`,
-        gtranslate: `https://translate.google.com/?source=hello&sl=auto&tl=hi&text=${encodeURIComponent(searchName)}&op=translate`
-    };
-
-    const url = urlMap[website];
-    if (url) {
-        setTimeout(() => {
-            window.location.href = url; // search URL
-            loadingBar.style.transform = 'scaleX(0)'; // Hide loading bar
-        }, 500); // time
-    }
-    document.getElementById('searchName').value = ''; // Clear the search field
-}
-    </script> 
+    <script src="script.js"></script>
 </body>
-</html><!--line 7.5/10-->
+
+</html><!--line 4.8/10-->
