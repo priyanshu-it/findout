@@ -44,11 +44,15 @@ input, select {
     color: black;
     border: 2px solid lightslategray;
     border-radius: 16px;
-    padding: 10px 15px;
     font-size: 1em; /* Base font size */
 }
 select{
     width: 100%;
+    padding: 10px 15px;
+}
+
+input{
+    padding: 10px 20px;
 }
 
 /* Button styling */
