@@ -1,5 +1,4 @@
 /*-- Styles --*/
-
 body {
     font-family: Arial, sans-serif;
     background-color: rgb(220, 230, 210);
@@ -15,56 +14,56 @@ header {
     background: linear-gradient(rgb(70, 70, 130), #004080);
     color: white;
     text-align: center;
-    padding-left: 4px; padding-right: 4px;
-    padding-top: 0%;
+    padding: 0px 10px;
 }
 
+/* Main container (flexbox) */
 main {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px; padding-top: 50px;
-}
-
-#searchForm {
-    background: white;
-    border-radius: 6px; border: 1px solid black;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 100%;
-    max-width: 400px; /* Max width */
-    text-align: center;
 }
 
-input[type="text"],[type="number"],[type="email"] {
-    width: 95%; 
-    padding: 10px;
-    margin-bottom: 10px;
+/* Search Form */
+#searchForm {
+    width: 100%; /* Full width */
+    max-width: 400px; /* Max width */
+    background: white; /* White background */
+    padding: 20px; /* Padding */
+    border-radius: 16px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow */
+    text-align: center;
+    filter: drop-shadow(0 0 10px rgb(70, 70, 130, 0.9)); /* Shadow */
+}
+
+/* Input fields and select */
+input, select {
+    background: white;
+    color: black;
     border: 2px solid lightslategray;
     border-radius: 16px;
+    padding: 10px 15px;
     font-size: 1em; /* Base font size */
 }
 
-select{
-    border: 0.5px solid black; border-radius: 15px; font-size: large; 
-    background-color: rgb(235, 248, 250); display: block; width: 100%; margin: 10px 0; padding: 10px;
-}
-
+/* Button styling */
 button {
-    background: linear-gradient(rgb(70, 70, 130), #004080);
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 15px;
-    cursor: pointer;
+    background: linear-gradient(rgb(70, 70, 130), #004080); /* Gradient background */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 16px; /* Rounded corners */
+    padding: 10px 15px; /* Padding */
     font-size: 1em; /* Base font size */
-    transition: background-color 0.3s;
-    width: 100%; 
+    cursor: pointer; /* Cursor on hover */
+    transition: background 0.3s; /* Smooth transition */
+    margin: 10px 0; /* Margin */
 }
 
+/* Button hover effect */
 button:hover {
-    background-color: rgb(60, 60, 160);
+    background: linear-gradient(#004080, rgb(70, 70, 130)); /* Reverse the gradient on hover */
 }
 
 footer {
@@ -86,4 +85,19 @@ footer {
     transition: transform 0.8s ease; /* Smooth transition */
     animation: loadingAnimation 5s linear forwards; /* Adjust duration for speed */
     z-index: 1000; /* Ensure it’s on top */
-} /* line 8.8/10
+}
+
+/* Adjust styles for small screens (mobile) */
+@media (max-width: 600px) {
+    body {
+        font-size: medium; /* Smaller font size */
+        padding: 0; /* Remove padding */
+        margin: 0; /* Remove margin */
+        font-size: 0.9em; 
+    }
+
+    #searchForm {
+        width: 100%; /* Allow the form to take 90% of the width */
+        padding: 15px; /* Slightly reduce padding */
+    }
+}
