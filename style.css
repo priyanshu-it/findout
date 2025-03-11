@@ -1,8 +1,6 @@
 /*-- Styles --*/
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
@@ -13,8 +11,7 @@ body {
     padding: 1px;
     display: flex;
     flex-direction: column;
-    min-height: 50vh;
-    font-size: large;
+    min-height: 64vh;
 }
 
 header {
@@ -36,7 +33,7 @@ main {
 /* Search Form */
 #searchForm {
     width: 100%; /* Full width */
-    max-width: 400px; /* Max width */
+    max-width: max-content; /* Max width */
     background: white; /* White background */
     padding: 20px; /* Padding */
     border-radius: 16px; /* Rounded corners */
@@ -52,14 +49,14 @@ input, select {
     border: 2px solid lightslategray;
     border-radius: 16px;
     font-size: 1em; /* Base font size */
-}
-select{
-    width: 100%;
-    padding: 10px 15px;
+    padding: 10px 60px;
+    text-align: center;
 }
 
-input{
-    padding: 10px 20px;
+select{
+    width: 100%;
+    padding: 10px 14px;
+    text-align: left;
 }
 
 /* Button styling */
@@ -72,7 +69,6 @@ button {
     font-size: 1em; /* Base font size */
     cursor: pointer; /* Cursor on hover */
     transition: background 0.3s; /* Smooth transition */
-    margin: 10px 0; /* Margin */
 }
 
 /* Button hover effect */
@@ -102,16 +98,17 @@ footer {
 }
 
 /* Adjust styles for small screens (mobile) */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     body {
         font-size: medium; /* Smaller font size */
         padding: 0; /* Remove padding */
         margin: 0; /* Remove margin */
-        font-size: 0.9em; 
+        font-size: 0.9.5em; 
     }
-
-    #searchForm {
-        width: 100%; /* Allow the form to take 90% of the width */
-        padding: 15px; /* Slightly reduce padding */
+    
+    input, select, button {
+        width: 100%; /* Full width */
+        margin: 6px 0; /* Add margin */
     }
 }
+/* line 115 */
