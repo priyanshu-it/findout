@@ -26,7 +26,7 @@ A web-based tool that helps users search web pages and view them directly on the
 
 ## 📂 Project Structure
 
-project-folder/
+project-folder
 │
 
 ├── index.html # Main HTML file
