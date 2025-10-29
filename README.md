@@ -29,9 +29,13 @@ A web-based tool that helps users search web pages and view them directly on the
 project-folder/
 │
 ├── index.html # Main HTML file
+
 ├── style.css # Custom CSS styles
+
 ├── script.js # JavaScript logic
+
 ├── /assets # Images, icons, etc.
+
 └── README.md # Project documentation
 
 ---
